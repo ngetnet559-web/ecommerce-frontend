@@ -1,57 +1,120 @@
 import { useState } from "react";
+import ReactFlagsSelect from "react-flags-select";
 import MobileMenu from "./MobileMenu";
+import Filter from "./Filter";
 import HamburgerButton from "./HamburgerButton";
-import { FiMapPin, FiShoppingCart, FiUser, FiSearch } from "react-icons/fi";
+import { live } from "../../assets/icons/icon";
+
+import { FiShoppingCart, FiUser, FiSearch } from "react-icons/fi";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
+  const [selected, setSelected] = useState("");
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+    setIsFilterOpen(false);
+  };
+
+  const toggleFilter = () => {
+    setIsFilterOpen(!isFilterOpen);
+    setIsOpen(false);
+  };
 
   return (
-    <nav className="bg-white relative shadow-sm">
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between gap-6">
-        <h1 className="text-3xl font-bold text-blue-900">eMox</h1>
+    <>
+      <nav className="bg-gray-100 relative shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between gap-6">
+          <div className="">
+            <h1 className="text-3xl font-bold text-blue-900">eMox</h1>
+            <div className="flex gap-2">
+              <div className="h-2 w-2 border rounded-full bg-[#2afe42]"></div>
+              <div className="h-2 w-2 border rounded-full bg-[#2afe42]"></div>
+            </div>
+          </div>
 
-        {/* Search - Desktop */}
-        <div className="hidden md:block flex-1">
-          <div className="flex items-center border rounded-full px-4 py-3">
-            <input
-              type="text"
-              placeholder="Search for any product or brand"
-              className="flex-1 outline-none"
+          {/* Desktop Search */}
+          <div className="hidden lg:block flex-1">
+            <div className="flex items-center border rounded-full px-4 py-3">
+              <input
+                type="text"
+                placeholder="Search for any product or brand"
+                className="flex-1 outline-none"
+              />
+              <FiSearch size={20} aria-hidden="true" />
+            </div>
+          </div>
+
+          {/* Desktop Menu */}
+          <div className="hidden md:flex items-center gap-6">
+            <ReactFlagsSelect
+              selected={selected}
+              onSelect={(code) => setSelected(code)}
+              placeholder="Location"
             />
-            <FiSearch size={20} />
+
+            <div className="flex items-center gap-2">
+              <FiShoppingCart />
+              <span>Cart</span>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <FiUser />
+              <span>Sign In</span>
+            </div>
+          </div>
+
+          {/* Mobile Buttons */}
+          <div className="md:hidden flex items-center gap-3">
+            {/* Filter Hamburger */}
+
+            <ReactFlagsSelect
+              selected={selected}
+              onSelect={(code) => setSelected(code)}
+              placeholder="Location"
+            />
+
+            {/* Navigation Hamburger */}
+            <HamburgerButton isOpen={isOpen} setIsOpen={toggleMenu} />
           </div>
         </div>
 
-        {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-6">
-          <div className="flex items-center gap-2">
-            <FiMapPin />
-            <span className="text-sm">Location</span>
-          </div>
+        {/* Mobile Menus */}
+        <MobileMenu isOpen={isOpen} setIsOpen={setIsOpen} />
+        <Filter isOpen={isFilterOpen} setIsOpen={setIsFilterOpen} />
+      </nav>
 
-          <div>AE</div>
+      <div className="flex sm:flex-row justify-between items-start sm:items-center gap-3 px-2 py-2">
+        <div className="flex gap-2 pt-2">
+          <button onClick={toggleFilter} aria-label="Open categories">
+            <GiHamburgerMenu size={24} />
+          </button>
 
-          <div className="flex items-center gap-2">
-            <FiShoppingCart />
-            <span>Cart</span>
-          </div>
-
-          <div className="flex items-center gap-2">
-            <FiUser />
-            <span>Sign In</span>
-          </div>
+          <select
+            className="border rounded-xl pl-2 pr-2 pb-2 flex items-center justify-center"
+            name="Categories"
+            id="category-select"
+          >
+            <option value=""> All Categories</option>
+            <option value="laptop">Laptops</option>
+            <option value="desktop">Desktops</option>
+            <option value="Phone">Phone</option>
+            <option value="beauty">Beauty</option>
+            <option value="cloth">Cloth</option>
+            <option value="electronics">Electronics</option>
+          </select>
         </div>
 
-        {/* Mobile Hamburger */}
-        <div className="md:hidden">
-          <HamburgerButton isOpen={isOpen} setIsOpen={setIsOpen} />
+        <div className="flex items-center gap-1 whitespace-nowrap  pt-2">
+          <h1 className="text-xl font-bold text-blue-900">
+            eMox<span className="text-red-300 text-sm">Live</span>
+          </h1>
+          <img className="w-4" src={live} alt="" />
         </div>
       </div>
-
-      {/* Mobile Menu */}
-      <MobileMenu isOpen={isOpen} />
-    </nav>
+    </>
   );
 };
 

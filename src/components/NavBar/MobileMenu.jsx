@@ -1,49 +1,54 @@
-import { FiMapPin, FiShoppingCart, FiUser, FiSearch } from "react-icons/fi";
+import { FiShoppingCart, FiUser } from "react-icons/fi";
+import { LiaSignInAltSolid } from "react-icons/lia";
 
 const MobileMenu = ({ isOpen }) => {
-  if (!isOpen) return null;
-
   return (
-    <div className="md:hidden bg-black border-t shadow-md">
-      <div className="p-4 space-y-4">
-        <div className="flex items-center border rounded-full px-4 py-3">
-          <input
-            type="text"
-            placeholder="Search ..."
-            className="flex-1 outline-none"
-          />
-          <FiSearch size={20} />
-        </div>
+    <div
+      className={`fixed top-16 right-0 h-[calc(100vh-4rem)] w-64 sm:w-72 bg-gray-50 shadow-xl border-l z-50 transform transition-transform duration-300 ease-in-out ${
+        isOpen ? "translate-x-0" : "translate-x-full"
+      }`}
+    >
+      <div className="flex flex-col p-5 gap-3">
+        <button className="flex items-center gap-3 rounded-lg p-3 text-gray-700 hover:bg-blue-100 transition">
+          <FiShoppingCart className="text-2xl" />
+          <span className="font-medium text-2xl">Cart</span>
+        </button>
 
-        {/* Menu Items */}
-        <div className="flex items-center gap-3">
-          <FiMapPin />
-          <span>Location</span>
-        </div>
+        <button className="flex items-center gap-3 rounded-lg p-3 text-gray-700 hover:bg-blue-100 transition">
+          <LiaSignInAltSolid className="text-2xl" />
+          <span className="font-medium text-2xl">Sign In</span>
+        </button>
 
-        <div className="flex items-center gap-3">
-          <FiShoppingCart />
-          <span>Cart</span>
-        </div>
+        <button className="flex items-center gap-3 rounded-lg p-3 text-gray-700 hover:bg-blue-100 transition">
+          <FiUser className="text-2xl" />
+          <span className="font-medium text-2xl">Register</span>
+        </button>
 
-        <div className="flex items-center gap-3">
-          <FiUser />
-          <span>Sign In</span>
-        </div>
+        <hr className="my-2" />
 
-        <hr />
+        {/* Navigation Links */}
+        <nav className="flex flex-col gap-2">
+          <a
+            href="/"
+            className="rounded-lg p-3 text-gray-700 text-2xl hover:bg-blue-100 transition"
+          >
+            Home
+          </a>
 
-        <a href="/" className="block py-2">
-          Home
-        </a>
+          <a
+            href="/shop"
+            className="rounded-lg p-3 text-gray-700 text-2xl hover:bg-blue-100 transition"
+          >
+            Shop
+          </a>
 
-        <a href="/shop" className="block py-2">
-          Shop
-        </a>
-
-        <a href="/contact" className="block py-2">
-          Contact
-        </a>
+          <a
+            href="/contact"
+            className="rounded-lg p-3 text-gray-700 text-2xl hover:bg-blue-100 transition"
+          >
+            Contact
+          </a>
+        </nav>
       </div>
     </div>
   );
