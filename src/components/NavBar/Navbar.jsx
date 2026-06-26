@@ -22,26 +22,25 @@ const Navbar = () => {
     setIsFilterOpen(!isFilterOpen);
     setIsOpen(false);
   };
-
   return (
     <>
-      <nav className="bg-gray-100 relative shadow-sm">
+      <nav className="sticky top-0 bg-blue-200 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between gap-6">
           <div className="">
             <h1 className="text-3xl font-bold text-blue-900">eMox</h1>
             <div className="flex gap-2">
-              <div className="h-2 w-2 border rounded-full bg-[#2afe42]"></div>
-              <div className="h-2 w-2 border rounded-full bg-[#2afe42]"></div>
+              <div className="h-2 w-2 border rounded-full bg-[#EC4899]"></div>
+              <div className="h-2 w-2 border rounded-full bg-[#EC4899]"></div>
             </div>
           </div>
 
           {/* Desktop Search */}
           <div className="hidden lg:block flex-1">
-            <div className="flex items-center border rounded-full px-4 py-3">
+            <div className="flex items-center border border-[rgba(18,81,216,0.805)] rounded-full px-4 py-3">
               <input
                 type="text"
                 placeholder="Search for any product or brand"
-                className="flex-1 outline-none"
+                className="flex-1 bg-transparent outline-none"
               />
               <FiSearch size={20} aria-hidden="true" />
             </div>
@@ -86,7 +85,7 @@ const Navbar = () => {
         <Filter isOpen={isFilterOpen} setIsOpen={setIsFilterOpen} />
       </nav>
 
-      <div className="flex sm:flex-row justify-between items-start sm:items-center gap-3 px-2 py-2">
+      <div className="sticky top-20 bg-blue-100 flex justify-between items-start sm:items-center gap-3 px-2 py-2">
         <div className="flex gap-2 pt-2">
           <button onClick={toggleFilter} aria-label="Open categories">
             <GiHamburgerMenu size={24} />
@@ -105,9 +104,25 @@ const Navbar = () => {
             <option value="cloth">Cloth</option>
             <option value="electronics">Electronics</option>
           </select>
+
+          <div>
+            <ul className="hidden lg:flex items-center gap-6">
+              <li>Electronics</li>
+              <li>Fashion</li>
+              <li>Women</li>
+              <li>Men</li>
+              <li>Kids</li>
+              <li>Beauty & Health</li>
+              <li>Home & Living</li>
+              <li>Groceries</li>
+              <li>Sports</li>
+              <li>Automotive</li>
+              <li>Best Deals</li>
+            </ul>
+          </div>
         </div>
 
-        <div className="flex items-center gap-1 whitespace-nowrap  pt-2">
+        <div className="flex-shrink-0 flex items-center gap-1 whitespace-nowrap pt-2">
           <h1 className="text-xl font-bold text-blue-900">
             eMox<span className="text-red-300 text-sm">Live</span>
           </h1>

@@ -3,7 +3,10 @@ import { images } from "../../assets/images/images";
 import { RiAppleLine } from "react-icons/ri";
 import { clock } from "../../assets/icons/icon";
 
+const phoneImages = [images.bg1, images.bg2, images.bg3];
+
 const Hero = () => {
+  const [current, setCurrent] = useState(0);
   const [timeLeft, setTimeLeft] = useState({
     hours: "24",
     minutes: "00",
@@ -11,15 +14,20 @@ const Hero = () => {
   });
 
   useEffect(() => {
-    // Set the countdown end time (24 hours from now)
+    // IMAGE SLIDER
+    const imageInterval = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % phoneImages.length);
+    }, 3000);
+
+    // COUNTDOWN TIMER
     const endTime = new Date().getTime() + 24 * 60 * 60 * 1000;
 
-    const timer = setInterval(() => {
+    const timerInterval = setInterval(() => {
       const now = new Date().getTime();
       const distance = endTime - now;
 
       if (distance <= 0) {
-        clearInterval(timer);
+        clearInterval(timerInterval);
         setTimeLeft({
           hours: "00",
           minutes: "00",
@@ -45,41 +53,70 @@ const Hero = () => {
       setTimeLeft({ hours, minutes, seconds });
     }, 1000);
 
-    return () => clearInterval(timer);
+    // CLEANUP (IMPORTANT)
+    return () => {
+      clearInterval(imageInterval);
+      clearInterval(timerInterval);
+    };
   }, []);
 
   return (
-    <div className="w-full overflow-x-hidden px-2 py-2">
+    <div className="w-full lg:flex gap-4 overflow-x-hidden px-2 py-2">
       {/* Hero */}
-      <div className="flex flex-col md:flex-row items-center justify-between w-full rounded-lg bg-gradient-to-br from-blue-500 to-[#be9cff] px-4 sm:px-6 md:px-16 py-8 md:py-10">
+      <div className="flex flex-col lg:flex-1 md:flex-row items-center justify-between w-full rounded-lg bg-gradient-to-br from-blue-500 to-[#be9cff] px-4 sm:px-6 md:px-16 py-8 md:py-10 mb-4 lg:mb-0">
         {/* Text */}
-        <div className="flex flex-col gap-2 text-white text-center md:text-left">
-          <div className="flex items-center justify-center md:justify-start gap-2 text-2xl sm:text-3xl font-bold">
+        <div className=" relative flex flex-col gap-2 text-white text-center md:text-left">
+          <div className="flex  justify-center md:justify-start lg: gap-2 text-2xl sm:text-3xl lg:text-xl lg:absolute -top-20 -left-10 font-bold lg:font-normal">
             <RiAppleLine />
             <h1>iPhone 16 Pro Max</h1>
           </div>
 
           <span className="text-2xl sm:text-3xl font-semibold">Titanium.</span>
-          <span className="text-lg sm:text-2xl font-semibold">
+          <span className="text-lg lg:text-2xl lg:font-bold sm:text-2xl font-semibold">
             So strong. So light.
           </span>
           <span className="text-lg sm:text-2xl font-semibold">So Pro.</span>
         </div>
 
         {/* Image */}
-        <div className="mt-6 md:mt-0 flex justify-center w-full md:w-auto">
-          <img
-            src={images.bg1}
-            alt="iPhone"
-            className="w-full max-w-[220px] sm:max-w-[300px] md:max-w-[380px] object-contain"
-          />
+        <div className="mt-6 md:mt-0 flex flex-col items-center justify-center w-full md:w-auto">
+          <div className="relative w-full max-w-[220px] sm:max-w-[300px] md:max-w-[380px] h-[260px] sm:h-[320px] md:h-[380px] overflow-hidden">
+            <div
+              className="flex h-full transition-transform duration-700 ease-out"
+              style={{
+                transform: `translateX(-${current * 100}%)`,
+              }}
+            >
+              {phoneImages.map((img, index) => (
+                <img
+                  key={index}
+                  src={img}
+                  alt={`iPhone ${index}`}
+                  className="w-full h-full flex-shrink-0 object-contain"
+                />
+              ))}
+            </div>
+          </div>
+
+          {/* Dots */}
+          <div className="flex justify-center gap-2 mt-4">
+            {phoneImages.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrent(index)}
+                className={`w-3 h-3 rounded-full transition ${
+                  current === index ? "bg-white scale-110" : "bg-gray-300"
+                }`}
+              />
+            ))}
+          </div>
         </div>
       </div>
 
       {/* Deal of the Day */}
-      <div className="mt-4 rounded-lg bg-blue-200 p-4">
+      <div className=" lg:flex-1 rounded-lg bg-blue-200 px-4 sm:px-6 md:px-16 py-8 md:py-10">
         {/* Header */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 lg:gap-20">
           <div className="flex items-center gap-3">
             <img className="w-6 h-6" src={clock} alt="clock" />
             <p className="text-lg sm:text-xl font-semibold">Deal of the Day</p>
@@ -101,7 +138,7 @@ const Hero = () => {
         </div>
 
         {/* Product */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-6 mt-6">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-6 lg:gap-32 lg:justify-center mt-6">
           <img
             src={images.watch}
             alt="Apple Watch"
@@ -113,7 +150,12 @@ const Hero = () => {
             <p className="text-gray-700">GPS, 42mm, Jet Black</p>
 
             <div className="mt-2 flex flex-wrap justify-center sm:justify-start items-center gap-2">
-              <span className="text-xl font-bold">$399.00 <span className="text-sm font-normal line-through decoration-red-500">$499.00</span></span>
+              <span className="text-xl font-bold">
+                $399.00{" "}
+                <span className="text-sm font-normal line-through decoration-red-500">
+                  $499.00
+                </span>
+              </span>
 
               <span className="rounded bg-[#edc3c3] px-2 py-1 text-sm font-semibold text-[#ff0202]">
                 20% OFF
