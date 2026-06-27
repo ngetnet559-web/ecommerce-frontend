@@ -24,7 +24,7 @@ const Navbar = () => {
   };
   return (
     <>
-      <nav className="sticky top-0 bg-blue-200 shadow-sm">
+      <nav className="sticky top-0 bg-blue-200 z-10 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between gap-6">
           <div className="">
             <h1 className="text-3xl font-bold text-blue-900">eMox</h1>
@@ -85,7 +85,7 @@ const Navbar = () => {
         <Filter isOpen={isFilterOpen} setIsOpen={setIsFilterOpen} />
       </nav>
 
-      <div className="sticky top-20 bg-blue-100 flex justify-between items-start sm:items-center gap-3 px-2 py-2">
+      <div className="sticky z-50 top-20 bg-blue-100 flex justify-between items-start sm:items-center gap-3 px-2 py-2">
         <div className="flex gap-2 pt-2">
           <button onClick={toggleFilter} aria-label="Open categories">
             <GiHamburgerMenu size={24} />

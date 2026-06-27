@@ -76,11 +76,28 @@ const Hero = () => {
             So strong. So light.
           </span>
           <span className="text-lg sm:text-2xl font-semibold">So Pro.</span>
+          <div className="">
+            <p>from</p>
+            <h1 className="text-3xl font-bold">
+              $50,769*{" "}
+              <span className="font-light line-through decoration-red-300 text-xl">
+                $56,999
+              </span>
+            </h1>
+
+            <p className="inline-block p-2 rounded-2xl mt-2 bg-transparent/10 text-center text-sm">
+              Save $6,230(11%)
+            </p>
+
+            <button className="border font-bold pl-6 pr-6 pt-3 pb-3 bg-white text-black rounded-2xl mt-6">
+              Shop Now
+            </button>
+          </div>
         </div>
 
         {/* Image */}
         <div className="mt-6 md:mt-0 flex flex-col items-center justify-center w-full md:w-auto">
-          <div className="relative w-full max-w-[220px] sm:max-w-[300px] md:max-w-[380px] h-[260px] sm:h-[320px] md:h-[380px] overflow-hidden">
+          <div className="relative lg:-z-2 w-full max-w-[220px] sm:max-w-[300px] md:max-w-[380px] h-[260px] sm:h-[320px] md:h-[380px] overflow-hidden">
             <div
               className="flex h-full transition-transform duration-700 ease-out"
               style={{
@@ -165,7 +182,7 @@ const Hero = () => {
         </div>
 
         {/* Button */}
-        <button className="mt-6 w-full rounded bg-[#2a31ff] py-3 text-white font-semibold hover:bg-[#1f27db] transition">
+        <button className="mt-20 w-full rounded bg-[#2a31ff] py-3 text-white font-semibold hover:bg-[#1f27db] transition">
           View Deal
         </button>
       </div>

@@ -37,7 +37,7 @@ const Filter = ({ isOpen, setIsOpen }) => {
       )}
 
       <div
-        className={`fixed top-16 left-0 h-[calc(100vh-4rem)] w-64 sm:w-72 bg-white border-r shadow-xl z-50 transform transition-transform duration-300 ease-in-out ${
+        className={`fixed top-32 left-0 h-[calc(100vh-4rem)] w-64 sm:w-72 bg-white border-r shadow-xl z-50 transform transition-transform duration-300 ease-in-out ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
