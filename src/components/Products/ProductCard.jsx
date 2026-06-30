@@ -20,7 +20,7 @@ const ProductCard = ({ product }) => {
   };
   const statusStyle = idToStyle[product.id] || "";
   return (
-    <div className="border border-gray-200 rounded-xl p-4 flex flex-col hover:shadow-lg transition-all duration-300 bg-white">
+    <div className="border border-gray-200 rounded-xl p-4 flex flex-col hover:shadow-lg transition-all duration-300 bg-slate-100 shadow-xl">
       {/* Status & Favorite */}
       <div className="flex justify-between items-center gap-10">
         <span

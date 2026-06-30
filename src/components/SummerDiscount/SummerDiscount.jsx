@@ -2,7 +2,7 @@ import { DiscountInfo } from "../../data/SummerDiscount.js";
 
 const SummerDiscount = () => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-4 gap-6 p-8 bg-yellow-200">
+    <div className="grid grid-cols-1 md:grid-cols-4 gap-6 p-8 bg-yellow-100">
       <div className=" p-6  bg-slate-100 rounded-2xl shadow-lg">
         <h2 className="text-red-600 font-extrabold">Up to 50% OFF</h2>
         <h2 className="text-3xl font-extrabold ">Summer Sale 🌴</h2>
