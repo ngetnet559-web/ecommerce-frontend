@@ -41,7 +41,7 @@ const ProductCard = ({ product }) => {
         <img
           src={image}
           alt={title}
-          className="max-h-full max-w-full object-contain"
+          className="  max-h-full max-w-full object-contain hover:scale-110 transition-transform duration-300 cursor-pointer"
         />
       </div>
 

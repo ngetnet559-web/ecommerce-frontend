@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import CategoryCard from "./CategoryCard";
-import {productURL} from "../../api/axiosConfig";
+import { productURL } from "../../api/axiosConfig";
 import { FaGreaterThan, FaLessThan } from "react-icons/fa";
 import Loader from "../Loader/Loader";
 
@@ -35,8 +35,8 @@ const Categories = () => {
     }
   };
   return (
-    <div className="relative max-w-6xl mx-auto py-8">
-      <div className="flex items-center justify-between  ">
+       <div className="relative sm:max-w-[100rem] mx-auto py-8 px-4 sm:px-6 lg:px-12">
+      <div className="flex flex-wrap items-center justify-between gap-2 mb-6">
         <h2 className="text-2xl font-bold mb-6">Shop by Category</h2>
         <a
           href="#"
@@ -54,7 +54,7 @@ const Categories = () => {
         <div className="relative flex items-center">
           <button
             onClick={scrollLeft}
-            className="absolute -left-4 z-10 bg-white border border-gray-200 shadow-md rounded-full w-10 h-10 flex items-center justify-center hover:bg-gray-50 transition-colors cursor-pointer"
+            className="hidden sm:flex absolute -left-4 z-10 bg-white border border-gray-200 shadow-md rounded-full w-10 h-10 flex items-center justify-center hover:bg-gray-50 transition-colors cursor-pointer"
           >
             <FaLessThan className="text-gray-600 text-sm" />{" "}
           </button>
@@ -72,7 +72,7 @@ const Categories = () => {
 
           <button
             onClick={scrollRight}
-            className="absolute -right-4 z-10 bg-white border border-gray-200 shadow-md rounded-full w-10 h-10 flex items-center justify-center hover:bg-gray-50 transition-colors cursor-pointer"
+            className="hidden sm:flex absolute -right-4 z-10 bg-white border border-gray-200 shadow-md rounded-full w-10 h-10 flex items-center justify-center hover:bg-gray-50 transition-colors cursor-pointer "
           >
             <FaGreaterThan className="text-gray-600 text-sm" />
           </button>

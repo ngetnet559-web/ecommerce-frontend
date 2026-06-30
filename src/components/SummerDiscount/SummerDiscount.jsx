@@ -29,7 +29,7 @@ const SummerDiscount = () => {
               </h2>
             </div>
             <div className="w-36 h-36 flex-shrink-0">
-              <img src={img_Link} className="w-full h-full object-contain" />
+              <img src={img_Link} className="w-full h-full object-contain hover:scale-110 transition-transform duration-300 cursor-pointer" />
             </div>
           </div>
         );
