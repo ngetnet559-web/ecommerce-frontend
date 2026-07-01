@@ -1,5 +1,3 @@
-/* products.module.css */
-
 .AirBud_Status {
   color: white;
   background-color: #ef4444;
@@ -25,4 +23,8 @@
 .sneaker_Status {
   color: white;
   background-color: rgb(2, 2, 253);
+}
+.heading_1 {
+  display: inline;
+  margin-bottom: 0;
 }
