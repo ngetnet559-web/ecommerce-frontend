@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import Categories from "./components/Categories/Categories";
 import Navbar from "./components/NavBar/Navbar";
 import SummerDiscount from "./components/SummerDiscount/SummerDiscount";
@@ -15,5 +16,14 @@ const App = () => {
     </div>
   );
 };
+=======
+import Home from "./pages/Home"
+
+const App = () => {
+  return (
+    <><Home/></>
+  )
+}
+>>>>>>> main
 
 export default App;

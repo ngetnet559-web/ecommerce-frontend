@@ -1,1 +1,29 @@
+<<<<<<< HEAD
 @import "tailwindcss";
+=======
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.ReactFlagsSelect-module_selectBtn__19wW7 {
+  border: 1px solid rgba(18, 81, 216, 0.805) !important;
+  border-radius: 2rem !important;
+  min-width: 60px;
+  padding: 6px;
+}
+
+#category-select {
+  background-color: rgb(95, 142, 244);
+  color: white;
+}
+
+option {
+  background-color: rgb(31, 132, 175);
+}
+
+@media (max-width: 400px) {
+  .ReactFlagsSelect-module_label__27pw9 {
+    display: none;
+  }
+}
+>>>>>>> main
