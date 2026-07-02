@@ -40,7 +40,7 @@ const Categories = () => {
         <h2 className="text-2xl font-bold mb-6">Shop by Category</h2>
         <a
           href="#"
-          className="text-blue-600 hover:underline  text-sm font-medium"
+          className="text-blue-600 hover:underline  text-md font-medium"
         >
           <span className="flex items-center justify-between font-bold  ">
             View All Categories &nbsp; <FaGreaterThan />

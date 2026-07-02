@@ -124,7 +124,7 @@ const Navbar = () => {
 
         <div className="flex-shrink-0 flex items-center gap-1 whitespace-nowrap pt-2  hover:cursor-pointer">
           <h1 className="text-xl font-bold text-blue-900">
-            eMox<span className="text-red-300 text-sm">Live</span>
+            eMox<span className="text-red-600 text-sm">Live</span>
           </h1>
           <img className="w-4" src={live} alt="" />
         </div>
