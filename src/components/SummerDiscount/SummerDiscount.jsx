@@ -9,7 +9,7 @@ const SummerDiscount = () => {
         <p className="text-gray-600 mt-4 text-lg">
           Hot deals on top brands Limited time only!
         </p>
-        <button className="shadow-slate-900 bg-blue-800 hover:bg-slate-700 text-white font-bold px-2 py-2.5 rounded-md mt-20 inline-block transition-colors duration-300 shadow-md cursor-pointer">
+        <button className="bg-blue-800 hover:bg-slate-700 text-white font-bold px-2 py-2.5 rounded-md mt-20 inline-block transition-colors duration-300 shadow-md cursor-pointer">
           Shop the Sale
         </button>
       </div>
