@@ -140,15 +140,15 @@ const Hero = () => {
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="bg-gray-200 w-8 h-9 flex items-center justify-center">
-              {timeLeft.hours}
-            </span>
+     <span className="bg-blue-600 text-white w-10 h-10 flex items-center justify-center rounded-lg font-bold shadow-md shadow-gray-400">
+  {timeLeft.hours}
+</span>
             :
-            <span className="bg-gray-200 w-8 h-9 flex items-center justify-center">
+            <span className="bg-blue-600 text-white w-10 h-10 flex items-center justify-center rounded-lg font-bold shadow-md shadow-gray-400">
               {timeLeft.minutes}
             </span>
             :
-            <span className="bg-gray-200 w-8 h-9 flex items-center justify-center">
+            <span className="bg-blue-600 text-white w-10 h-10 flex items-center justify-center rounded-lg font-bold shadow-md shadow-gray-400">
               {timeLeft.seconds}
             </span>
           </div>
@@ -174,7 +174,7 @@ const Hero = () => {
                 </span>
               </span>
 
-              <span className="rounded bg-[#edc3c3] px-2 py-1 text-sm font-semibold text-[#ff0202]">
+              <span className="rounded bg-[#edc3c3] px-2 py-1 text-red-600 font-extrabold">
                 20% OFF
               </span>
             </div>
