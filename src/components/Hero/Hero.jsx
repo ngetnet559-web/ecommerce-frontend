@@ -131,7 +131,7 @@ const Hero = () => {
       </div>
 
       {/* Deal of the Day */}
-      <div className=" lg:flex-1 rounded-lg bg-blue-200 px-4 sm:px-6 md:px-16 py-8 md:py-10">
+      <div className=" lg:flex-1 rounded-lg bg-slate-200 px-4 sm:px-6 md:px-16 py-8 md:py-10">
         {/* Header */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 lg:gap-20">
           <div className="flex items-center gap-3">
