@@ -1,9 +1,4 @@
-<<<<<<< HEAD
 @import "tailwindcss";
-=======
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 .ReactFlagsSelect-module_selectBtn__19wW7 {
   border: 1px solid rgba(18, 81, 216, 0.805) !important;
@@ -13,12 +8,11 @@
 }
 
 #category-select {
-  background-color: rgb(95, 142, 244);
+  background-color: rgb(9, 78, 226);
   color: white;
 }
-
 option {
-  background-color: rgb(31, 132, 175);
+  background-color: rgb(8, 133, 187);
 }
 
 @media (max-width: 400px) {
@@ -26,4 +20,3 @@ option {
     display: none;
   }
 }
->>>>>>> main

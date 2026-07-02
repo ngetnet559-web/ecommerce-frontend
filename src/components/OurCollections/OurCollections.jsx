@@ -17,7 +17,7 @@ const OurCollections = () => {
               <div className="flex flex-col items-start gap-2">
                 <h2 className="text-xl font-bold text-gray-900">{title}</h2>
                 <p className="text-sm text-gray-600 mb-4">{discount}</p>
-                <button className="bg-blue-800 text-white text-sm font-bold py-3 px-5 rounded-md shadow-sm transition-all duration-300 hover:bg-slate-600 hover:cursor-pointer">
+                <button className="shadow-black bg-blue-800 text-white text-sm font-bold py-3 px-5 rounded-md shadow-sm transition-all duration-300 hover:bg-slate-600 hover:cursor-pointer">
                   {`Shop ${btn}`}
                 </button>
               </div>
