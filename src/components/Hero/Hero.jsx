@@ -89,7 +89,7 @@ const Hero = () => {
               Save $6,230(11%)
             </p>
 
-            <button className="border font-bold pl-6 pr-6 pt-3 pb-3 bg-white text-black rounded-2xl mt-6">
+            <button className="border font-bold pl-6 pr-6 pt-3 pb-3  rounded-2xl mt-6  bg-blue-800 hover:bg-slate-700 text-white font-bold px-2 py-2.5 rounded-md mt-20 inline-block transition-colors duration-300 shadow-md cursor-pointer">
               Shop Now
             </button>
           </div>
@@ -97,7 +97,7 @@ const Hero = () => {
 
         {/* Image */}
         <div className="mt-6 md:mt-0 flex flex-col items-center justify-center w-full md:w-auto">
-          <div className="relative lg:-z-2 w-full max-w-[220px] sm:max-w-[300px] md:max-w-[380px] h-[260px] sm:h-[320px] md:h-[380px] overflow-hidden">
+          <div className="relative lg:-z-0 w-full max-w-[220px] sm:max-w-[300px] md:max-w-[380px] h-[260px] sm:h-[320px] md:h-[380px] overflow-hidden">
             <div
               className="flex h-full transition-transform duration-700 ease-out"
               style={{
@@ -182,7 +182,7 @@ const Hero = () => {
         </div>
 
         {/* Button */}
-        <button className="mt-20 w-full rounded bg-[#2a31ff] py-3 text-white font-semibold hover:bg-[#1f27db] transition">
+        <button className="rounded hover:bg-slate-700 mt-20 w-full rounded bg-[#2a31ff] py-3 text-white font-semibold hover:bg-[#1f27db] transition-colors duration-300  hover:cursor-pointer">
           View Deal
         </button>
       </div>
