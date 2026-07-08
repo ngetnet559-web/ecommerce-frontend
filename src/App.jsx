@@ -3,6 +3,7 @@ import SummerDiscount from "./components/SummerDiscount/SummerDiscount";
 import Products from "./components/Products/Products";
 import OurCollections from "./components/OurCollections/OurCollections";
 import Home from "./pages/Home";
+import CustomerAndBrandsSection from "./components/CustomerSection/CustomerSection";
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
       <SummerDiscount />
       <Products />
       <OurCollections />
+      <CustomerAndBrandsSection/>
     </div>
   );
 };
