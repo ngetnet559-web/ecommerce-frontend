@@ -7,6 +7,10 @@ import {
   customerServiceLinks,
   aboutLinks,
 } from "../../data/footerData.js";
+<<<<<<< HEAD
+=======
+
+>>>>>>> 20c4dc7 (update on responsiveness of SummerDiscount Section)
 const FooterLinkList = ({ title, links }) => {
   return (
     <div>
