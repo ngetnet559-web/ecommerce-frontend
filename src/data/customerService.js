@@ -1,4 +1,4 @@
-import natiImg from '../../public/customer_Images/nati.jpg';
+import natiImg from '/customer_Images/nati.jpg';
 // import daniImg from '../assets/images/dani.jpg';
 // import haileImg from '../assets/images/haile.jpg';
 export const testimonials = [
