@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import ReactFlagsSelect from "react-flags-select";
 import MobileMenu from "./MobileMenu";
 import Filter from "./Filter";
@@ -7,11 +7,15 @@ import { live } from "../../assets/icons/icon";
 
 import { FiShoppingCart, FiUser, FiSearch } from "react-icons/fi";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { CartContext } from "../CartContext/CartContext";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [selected, setSelected] = useState("");
+
+  // receive CartItems data from Context API
+  const { cartItems } = useContext(CartContext) || { cartItems: [] };
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -22,9 +26,10 @@ const Navbar = () => {
     setIsFilterOpen(!isFilterOpen);
     setIsOpen(false);
   };
+
   return (
     <>
-      <nav className="sticky top-0 bg-white z-60 shadow-sm">
+      <nav className="sticky top-0 bg-white z-[60] shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between gap-6">
           <div className="">
             <h1 className="text-3xl font-bold text-blue-900">eMox</h1>
@@ -48,32 +53,51 @@ const Navbar = () => {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-6">
-            <ReactFlagsSelect
-              selected={selected}
-              onSelect={(code) => setSelected(code)}
-              placeholder="Location"
-            />
-
-            <div className="flex items-center gap-2 hover:cursor-pointer">
-              <FiShoppingCart />
+            {/* Z-index fix for Dropdown */}
+            <div className="relative z-[70]">
+              <ReactFlagsSelect
+                selected={selected}
+                onSelect={(code) => setSelected(code)}
+                placeholder="Location"
+              />
+            </div>
+            {/* Cart Items */}
+            <div className="flex items-center gap-1 hover:cursor-pointer relative">
+              <FiShoppingCart size={22} className="text-gray-700" />
               <span>Cart</span>
+              {cartItems.length > 0 && (
+                <span className="absolute -top-2 -left-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-bold">
+                  {cartItems.length}
+                </span>
+              )}
             </div>
 
-            <div className="flex items-center gap-2 hover:cursor-pointer">
-              <FiUser />
+            <div className="flex items-center gap-1 hover:cursor-pointer">
+              <FiUser size={22} className="text-gray-700" />
               <span>Sign In</span>
             </div>
           </div>
 
           {/* Mobile Buttons */}
           <div className="md:hidden flex items-center gap-3">
-            {/* Filter Hamburger */}
+            {/* Z-index fix for Mobile Dropdown */}
+            <div className="relative z-[70]">
+              <ReactFlagsSelect
+                selected={selected}
+                onSelect={(code) => setSelected(code)}
+                placeholder="Location"
+              />
+            </div>
 
-            <ReactFlagsSelect
-              selected={selected}
-              onSelect={(code) => setSelected(code)}
-              placeholder="Location"
-            />
+            {/* Mobile Cart Icon */}
+            <div className="relative hover:cursor-pointer mr-2">
+              <FiShoppingCart size={24} />
+              {cartItems.length > 0 && (
+                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-[10px] rounded-full h-4 w-4 flex items-center justify-center font-bold">
+                  {cartItems.length}
+                </span>
+              )}
+            </div>
 
             {/* Navigation Hamburger */}
             <HamburgerButton isOpen={isOpen} setIsOpen={toggleMenu} />
@@ -106,23 +130,23 @@ const Navbar = () => {
           </select>
 
           <div>
-            <ul className="hidden lg:flex items-center gap-6  hover:cursor-pointer">
-              <li>Electronics</li>
-              <li>Fashion</li>
-              <li>Women</li>
-              <li>Men</li>
-              <li>Kids</li>
-              <li>Beauty & Health</li>
-              <li>Home & Living</li>
-              <li>Groceries</li>
-              <li>Sports</li>
-              <li>Automotive</li>
-              <li>Best Deals</li>
+            <ul className="hidden lg:flex items-center gap-6 hover:cursor-pointer font-medium text-gray-700">
+              <li className="hover:text-blue-600">Electronics</li>
+              <li className="hover:text-blue-600">Fashion</li>
+              <li className="hover:text-blue-600">Women</li>
+              <li className="hover:text-blue-600">Men</li>
+              <li className="hover:text-blue-600">Kids</li>
+              <li className="hover:text-blue-600">Beauty & Health</li>
+              <li className="hover:text-blue-600">Home & Living</li>
+              <li className="hover:text-blue-600">Groceries</li>
+              <li className="hover:text-blue-600">Sports</li>
+              <li className="hover:text-blue-600">Automotive</li>
+              <li className="hover:text-blue-600">Best Deals</li>
             </ul>
           </div>
         </div>
 
-        <div className="flex-shrink-0 flex items-center gap-1 whitespace-nowrap pt-2  hover:cursor-pointer">
+        <div className="flex-shrink-0 flex items-center gap-1 whitespace-nowrap pt-2 hover:cursor-pointer">
           <h1 className="text-xl font-bold text-blue-900">
             eMox<span className="text-red-600 text-sm">Live</span>
           </h1>

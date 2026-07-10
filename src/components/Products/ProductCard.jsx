@@ -1,16 +1,20 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Rating } from "@mui/material";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import numeral from "numeral";
 import styles from "./Products.module.css";
+import { CartContext } from "../CartContext/CartContext";
 
 const ProductCard = ({ product }) => {
   const { image, title, description, price, discount, status, rating } =
     product;
+
+  const { addToCart } = useContext(CartContext);
+
   const [userRating, setUserRating] = useState(rating?.rate || 0);
   const [isFavorite, setIsFavorite] = useState(false);
-  // additional styles for status only
+
   const idToStyle = {
     1: styles.AirBud_Status,
     2: styles.headset_Status,
@@ -19,6 +23,7 @@ const ProductCard = ({ product }) => {
     5: styles.sneaker_Status,
   };
   const statusStyle = idToStyle[product.id] || "";
+
   return (
     <div className="border border-gray-200 rounded-xl p-4 flex flex-col hover:shadow-lg transition-all duration-300 bg-slate-100 shadow-xl">
       {/* Status & Favorite */}
@@ -41,7 +46,7 @@ const ProductCard = ({ product }) => {
         <img
           src={image}
           alt={title}
-          className="  max-h-full max-w-full object-contain hover:scale-110 transition-transform duration-300 cursor-pointer"
+          className="max-h-full max-w-full object-contain hover:scale-110 transition-transform duration-300 cursor-pointer"
         />
       </div>
 
@@ -73,9 +78,10 @@ const ProductCard = ({ product }) => {
           </span>
         )}
       </div>
-
-      {/* Add to cart */}
-      <button className="w-full border-2 border-blue-600 text-blue-600 font-semibold py-2 rounded-lg transition-all duration-300 hover:bg-slate-600 hover:text-white hover:border-slate-600 cursor-pointer">
+      <button
+        onClick={() => addToCart(product)}
+        className="w-full border-2 border-blue-600 text-blue-600 font-semibold py-2 rounded-lg transition-all duration-300 hover:bg-slate-600 hover:text-white hover:border-slate-600 cursor-pointer"
+      >
         Add to Cart
       </button>
     </div>
